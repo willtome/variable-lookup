@@ -1,0 +1,12 @@
+[routers]
+rtr1 tunnel_ip=192.168.1.1
+rtr2 tunnel_ip=10.10.8.5
+
+[switches]
+sw1 mgmt_ip=172.16.5.1
+sw2 mgmt_ip=172.16.5.2
+
+[all:vars]
+ntp_server=['10.20.10.10','10.10.20.10']
+mgmt_subnet=mgmt_network_192.168.33.0
+

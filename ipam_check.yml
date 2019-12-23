@@ -1,0 +1,22 @@
+---
+- hosts: "{{ HOSTS }}"
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - include_role:
+      name: ipam_check
+      tasks_from: ip_check
+    vars:
+      ipam_check_IP: "{{ lookup('vars', item) }}"
+    loop: "{{ IP }}"
+    when: IP is defined
+  
+  - include_role:
+      name: ipam_check
+      tasks_from: subnet_check
+    vars:
+      ipam_check_ID: "{{ lookup('vars', item.id) }}"
+      ipam_check_DESCRIPTION: "{{ lookup('vars', item.description) }}"
+    loop: "{{ SUBNET }}"
+    when: SUBNET is defined

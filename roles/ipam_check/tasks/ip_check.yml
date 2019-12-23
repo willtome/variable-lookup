@@ -1,0 +1,9 @@
+---
+- name: DEBUG INPUT
+  debug:
+    msg: "{{ ipam_check_IP }}"
+
+- name: CHECK IP
+  assert:
+    that:
+      - "{{ (ipam_check_IP | ipaddr) is not sameas false }}"

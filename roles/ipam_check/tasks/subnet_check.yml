@@ -1,0 +1,9 @@
+---
+- name: DEBUG ID
+  debug:
+    msg: "{{ ipam_check_ID }}"
+
+- name: DEBUG DESCIPTION
+  debug:
+    msg: "{{ ipam_check_DESCRIPTION }}"
+
